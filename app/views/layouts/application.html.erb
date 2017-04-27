@@ -28,10 +28,15 @@
                 <% if user_signed_in? %>
                     <div class="left-navigation">
                         <ul>
-                            <li><i class="fa fa-trophy" aria-hidden="true"></i><a href="<%= root_url %>">Home</a></li>
-                            <li><i class="fa fa-bookmark-o" aria-hidden="true"></i>Active Books <span class="activebooks pull-right">3</span></li>
-                            <li><i class="fa fa-trophy" aria-hidden="true"></i>Recommendations</li>
-                            <li><i class="fa fa-users" aria-hidden="true"></i>People</li>
+                            <li><i class="fa fa-trophy"></i><a href="<%= root_url %>">Home</a></li>
+
+                            <li>
+                                <i class="fa fa-bookmark-o"></i><a href="<%= "#" %>">Schedule</a> 
+                                <span class="activebooks pull-right">3</span>
+                            </li>
+
+                            <li><i class="fa fa-trophy"></i>Recommendations</li>
+                            <li><i class="fa fa-users"></i>People</li>
                         </ul>
                             <ul class="category">
                             <li><i class="fa fa-circle-thin" aria-hidden="true"></i>Family Reading</li>
@@ -46,7 +51,9 @@
                 <% end %>
             </div>
             <div class="col-md-8 main-content">
-                <p class="notice"><%= notice %></p>
+                <% if notice %>
+                    <p class="notice"><%= notice %></p>
+                <% end %>
                 <p class="alert"><%= alert %></p>
                   <%= yield %>
             </div>

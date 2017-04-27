@@ -155,6 +155,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bcrypt
   byebug
   coffee-rails (~> 4.2)
   devise

@@ -219,3 +219,21 @@ li:hover{
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
+
+a:hover, a:focus {
+  color: rgb(255, 255, 255) !important;
+  text-decoration: none !important;
+}
+
+a{
+  color: rgb(255, 255, 255) !important;
+  text-decoration: none !important;
+}
+.notice {
+  background-color: rgb(223, 240, 216);
+  border-color: rgb(214, 233, 198);
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 20px;
+  text-align: left;
+}

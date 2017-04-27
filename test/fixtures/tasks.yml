@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  todo: MyString
+  expire: 2017-04-27 17:12:22
+  published: false
+  finished: false
+  user: one
+
+two:
+  todo: MyString
+  expire: 2017-04-27 17:12:22
+  published: false
+  finished: false
+  user: two
