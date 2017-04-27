@@ -9,6 +9,59 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container-fluid">
+         
+        <div class="row">
+            <div class="col-md-3 col-sm-4 sidebar3">
+                <% if user_signed_in? %>
+                <div class="logo">
+                    <img src="http://lorempixel.com/output/sports-q-c-64-64-2.jpg" class="img-responsive" alt="Logo">
+                </div>
+                <div class="name">
+                    <p><%= current_user.full_name %></p>
+                </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-4 sidebar3">
+                <% if user_signed_in? %>
+                    <div class="left-navigation">
+                        <ul>
+                            <li><i class="fa fa-trophy" aria-hidden="true"></i><a href="<%= root_url %>">Home</a></li>
+                            <li><i class="fa fa-bookmark-o" aria-hidden="true"></i>Active Books <span class="activebooks pull-right">3</span></li>
+                            <li><i class="fa fa-trophy" aria-hidden="true"></i>Recommendations</li>
+                            <li><i class="fa fa-users" aria-hidden="true"></i>People</li>
+                        </ul>
+                            <ul class="category">
+                            <li><i class="fa fa-circle-thin" aria-hidden="true"></i>Family Reading</li>
+                            <li><i class="fa fa-circle-thin" aria-hidden="true"></i>Education</li>
+                            <li><i class="fa fa-circle-thin" aria-hidden="true"></i>Business</li>
+                        </ul>
+                        <ul>
+                            <li><i class="fa fa-cog" aria-hidden="true"></i><a href="<%= edit_user_registration_path %>">Update Profile</a></li>
+                            <li><i class="fa fa-power-off" aria-hidden="true"></i><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                        </ul>
+                    </div>
+                <% end %>
+            </div>
+            <div class="col-md-8 main-content">
+                <p class="notice"><%= notice %></p>
+                <p class="alert"><%= alert %></p>
+                  <%= yield %>
+            </div>
+        </div>
+    </div>
   </body>
 </html>
+
+<script>
+    window.onload=function(){
+
+$('.dropdown').click(function(){
+$(this).siblings(".submenu").toggleClass('hide');
+
+
+});
+}
+</script>

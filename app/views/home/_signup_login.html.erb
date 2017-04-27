@@ -1,0 +1,86 @@
+<div id="regContainer" class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-login">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <a href="#" class="active" id="login-form-link">Login</a>
+                  </div>
+                  <div class="col-xs-6">
+                    <a href="#" id="register-form-link">Register</a>
+                  </div>
+                </div>
+                <hr>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-lg-12">
+                      <div id="login-form" style="display: block;">
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                      <div class="form-group">
+                        <label for="username"><%= f.label :email %></label>
+                        <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
+                      </div>
+                      <div class="form-group">
+                        <label for="password"><%= f.label :password %></label>
+                        <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
+                      </div>
+                      <div class="form-group text-center">
+                          <% if devise_mapping.rememberable? -%>
+                            <div class="field">
+                              <%= f.check_box :remember_me %>
+                              <%= f.label :remember_me %>
+                            </div>
+                          <% end -%>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-sm-6 col-sm-offset-3">
+                            <%= f.submit "Log in", class: "form-control btn btn-login" %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                    </div>
+                    <div id="register-form" style="display: none;">
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                          <%= devise_error_messages! %>
+                          
+                      <div class="form-group">
+                        <label for="username"><%= f.label :email %></label>
+                        <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="password"><%= f.label :password %></label>
+                        <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="confirm-password"><%= f.label :password_confirmation %></label>
+                        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", class: "form-control" %>
+                      </div>
+                      
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-sm-6 col-sm-offset-3">
+                            <%= f.submit "Register Now",  class: "form-control btn btn-register" %>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    <% end %>
+                    
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <script>
+        $("#register-form").hide();
+    </script>
