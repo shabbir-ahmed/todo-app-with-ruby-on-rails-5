@@ -6,24 +6,44 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
   </head>
 
   <body>
     <div class="container-fluid">
-         
-        <div class="row">
-            <div class="col-md-3 col-sm-4 sidebar3">
-                <% if user_signed_in? %>
-                <div class="logo">
-                    <img src="http://lorempixel.com/output/sports-q-c-64-64-2.jpg" class="img-responsive" alt="Logo">
-                </div>
-                <div class="name">
-                    <p><%= current_user.full_name %></p>
-                </div>
-                <% end %>
+        <% if controller.controller_name == "tasks" %>
+            <div class="row">
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="<%= root_url %>">To DO</a>
+                        </div>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><span class="glyphicon glyphicon-user"></span> <%= current_user.full_name %></a>
+                            </li>
+                            <li> 
+                                <%= link_to "<span class='glyphicon glyphicon-log-in'></span> Logout".html_safe, destroy_user_session_path, method: :delete %>      
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-        </div>
-        <div class="row">
+        <% else %>
+            <div class="row">
+                <div class="col-md-3 col-sm-4 sidebar3">
+                    <% if user_signed_in? %>
+                    <div class="logo">
+                        <!-- <img src="http://lorempixel.com/output/sports-q-c-64-64-2.jpg" class="img-responsive" alt="Logo"> -->
+                    </div>
+                    <div class="name">
+                        <p><%= current_user.full_name %></p>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+
             <div class="col-md-3 col-sm-4 sidebar3">
                 <% if user_signed_in? %>
                     <div class="left-navigation">
@@ -31,7 +51,7 @@
                             <li><i class="fa fa-trophy"></i><a href="<%= root_url %>">Home</a></li>
 
                             <li>
-                                <i class="fa fa-bookmark-o"></i><a href="<%= "#" %>">Schedule</a> 
+                                <i class="fa fa-bookmark-o"></i><a href="<%= tasks_path %>">Schedule</a> 
                                 <span class="activebooks pull-right">3</span>
                             </li>
 
@@ -50,14 +70,16 @@
                     </div>
                 <% end %>
             </div>
-            <div class="col-md-8 main-content">
-                <% if notice %>
-                    <p class="notice"><%= notice %></p>
-                <% end %>
-                <p class="alert"><%= alert %></p>
-                  <%= yield %>
-            </div>
+        <% end %>
+
+        <div class="<% if controller.controller_name == 'tasks' %>col-md-12<% else %>col-md-8<% end %> main-content">
+            <% if notice %>
+                <p class="notice"><%= notice %></p>
+            <% end %>
+            <p class="alert"><%= alert %></p>
+              <%= yield %>
         </div>
+
     </div>
   </body>
 </html>
