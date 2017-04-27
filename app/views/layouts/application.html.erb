@@ -76,7 +76,9 @@
             <% if notice %>
                 <p class="notice"><%= notice %></p>
             <% end %>
-            <p class="alert"><%= alert %></p>
+            <% if alert %>
+                <p class="alert"><%= alert %></p>
+            <% end %>
               <%= yield %>
         </div>
 

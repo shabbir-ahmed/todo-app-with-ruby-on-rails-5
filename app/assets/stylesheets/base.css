@@ -17,6 +17,19 @@ body{
     height:100vh;
     color: #fff;
 }
+.navbar-inverse{ 
+    background: #4143A3;
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, #1E1E45, #4143A3, #848FD8,#CFD5EE,#ECEDF9);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #1E1E45, #4143A3, #848FD8,#CFD5EE,#ECEDF9);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #1E1E45, #4143A3, #848FD8,#CFD5EE,#ECEDF9);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient( to bottom right, #1E1E45, #4143A3, #848FD8,#CFD5EE,#ECEDF9);
+    /* Standard syntax */
+    color: #fff;
+}
 .sidebar3
 {padding-top:30px;
 padding-left:30px;
