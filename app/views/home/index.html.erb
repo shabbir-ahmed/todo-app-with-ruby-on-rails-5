@@ -1,8 +1,5 @@
-<% unless user_signed_in? %>
-    <%= render "home/signup_login" %>
-<% end %>
-
-	<% @activities.each do |activity| %>
+<% if user_signed_in? %>
+    <% @activities.each do |activity| %>
 	  	<div class="activity">
 		  	<span class="activity_mark"><%= activity.owner.full_name if activity.owner %></span>
 		  	<% if activity.key == "task.update" %> 
@@ -17,3 +14,6 @@
   			<% end %>
 	  	</div>
 	<% end %>
+<% else %>
+	<%= render "home/signup_login" %>
+<% end %>
