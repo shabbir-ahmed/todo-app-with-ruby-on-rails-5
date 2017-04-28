@@ -29,6 +29,16 @@ $('.todolist').on('change','#sortable li input[type="checkbox"]',function(){
     if($(this).prop('checked')){
         var doneItem = $(this).parent().parent().find('label').text();
         $(this).parent().parent().parent().addClass('remove');
+        var id = $('#hidden_id').val();
+        $.ajax({
+            url: '/tasks/' + id,
+            type: 'PUT',
+            dataType:'json',
+            data: {task: {finished: true}},
+            success: function (response) {
+                $("#success_notice").html("<div class='alert alert-success fade in'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>Finished</strong></div>");
+            }
+        });
         done(doneItem);
         countTodos();
     }
@@ -54,8 +64,7 @@ function createTodo(text){
             dataType:'json',
             data: {task: {todo: text}},
             success: function (response) {
-                // $("#responseusername").html(response);
-                alert("ok");
+                $("#success_notice").html("<div class='alert alert-success fade in'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>Added</strong></div>");
             }
         });
     $('#sortable').append(markup);
