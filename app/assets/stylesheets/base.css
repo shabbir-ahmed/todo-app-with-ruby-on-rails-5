@@ -1,7 +1,3 @@
-*{
-    box-sizing: border-box;
-      border: 1px solid transparent;
-}
 
 body{ 
     background: #4143A3;
@@ -18,17 +14,10 @@ body{
     color: #fff;
 }
 .navbar-inverse{ 
-    background: #0B65B1;
-    /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left top, #1E1E45, #4143A3, #848FD8,#CFD5EE,#ECEDF9);
-    /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom right, #1E1E45, #4143A3, #848FD8,#CFD5EE,#ECEDF9);
-    /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom right, #1E1E45, #4143A3, #848FD8,#CFD5EE,#ECEDF9);
-    /* For Firefox 3.6 to 15 */
-    background: linear-gradient( to bottom right, #1E1E45, #4143A3, #848FD8,#CFD5EE,#ECEDF9);
+    background-color: #0B65B1 !important;
     /* Standard syntax */
     color: #fff;
+    border-color: #0B65B1 !important;
 }
 .sidebar3
 {padding-top:30px;
@@ -67,7 +56,6 @@ li
 {
   list-style-type: none;
   padding:5px;
-  border-bottom:1px solid #848FD8;
 }
 ul{padding-left:0px;}
 .activebooks

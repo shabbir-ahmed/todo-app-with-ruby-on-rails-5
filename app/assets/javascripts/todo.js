@@ -22,6 +22,8 @@ $('.add-todo').on('keypress',function (e) {
            }
       }
 });
+
+
 // mark task as done
 $('.todolist').on('change','#sortable li input[type="checkbox"]',function(){
     if($(this).prop('checked')){
@@ -46,9 +48,20 @@ function countTodos(){
 //create task
 function createTodo(text){
     var markup = '<li class="ui-state-default"><div class="checkbox"><label><input type="checkbox" value="" />'+ text +'</label></div></li>';
+        $.ajax({
+            url: '/tasks',
+            type: 'POST',
+            dataType:'json',
+            data: {task: {todo: text}},
+            success: function (response) {
+                // $("#responseusername").html(response);
+                alert("ok");
+            }
+        });
     $('#sortable').append(markup);
     $('.add-todo').val('');
 }
+
 
 //mark task as done
 function done(doneItem){
