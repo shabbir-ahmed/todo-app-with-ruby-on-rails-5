@@ -48,21 +48,17 @@
                 <% if user_signed_in? %>
                     <div class="left-navigation">
                         <ul>
-                            <li><i class="fa fa-trophy"></i><a href="<%= root_url %>">Home</a></li>
+                            <li><a href="<%= root_url %>">Home</a></li>
 
                             <li>
-                                <i class="fa fa-bookmark-o"></i><a href="<%= tasks_path %>">Schedule</a> 
-                                <span class="activebooks pull-right">3</span>
+                                <a href="<%= tasks_path %>">Schedule</a> 
                             </li>
-
-                            <li><i class="fa fa-trophy"></i>Recommendations</li>
-                            <li><i class="fa fa-users"></i>People</li>
                         </ul>
-                            <ul class="category">
-                            <li><i class="fa fa-circle-thin" aria-hidden="true"></i>Family Reading</li>
-                            <li><i class="fa fa-circle-thin" aria-hidden="true"></i>Education</li>
-                            <li><i class="fa fa-circle-thin" aria-hidden="true"></i>Business</li>
-                        </ul>
+                            <ul>
+                                <li></i>Family Reading</li>
+                                <li></i>Education</li>
+                                <li></i>Business</li>
+                            </ul>
                         <ul>
                             <li><i class="fa fa-cog" aria-hidden="true"></i><a href="<%= edit_user_registration_path %>">Update Profile</a></li>
                             <li><i class="fa fa-power-off" aria-hidden="true"></i><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>

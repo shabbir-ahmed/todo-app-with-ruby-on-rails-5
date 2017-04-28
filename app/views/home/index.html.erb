@@ -5,10 +5,15 @@
 	<% @activities.each do |activity| %>
 	  	<div class="activity">
 		  	<span class="activity_mark"><%= activity.owner.full_name if activity.owner %></span>
-		  	added to <% if activity.trackable %>
-		  				<span class="activity_mark"><%= activity.trackable.todo %></span>
-		  			<% else %>
-		  			  	which has since been removed 
-		  			<% end %>
+		  	<% if activity.key == "task.update" %> 
+		  		Finished Task
+		  	<% elsif activity.key == "task.create" %> 
+		  		Created Task
+		  	<% end %>
+		  	<% if activity.trackable %>
+  				<span class="activity_mark"><%= activity.trackable.todo %></span> <i><%= time_ago_in_words(activity.created_at) %> ago </i>
+  			<% else %>
+  			  	which has since been removed 
+  			<% end %>
 	  	</div>
 	<% end %>

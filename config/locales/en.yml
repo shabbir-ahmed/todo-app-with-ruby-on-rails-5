@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+
+  activity:
+    article:
+      create: 'Task Created'
+      update: 'Task Updated'
+      destroy: 'Task Deleted!'

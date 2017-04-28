@@ -7,12 +7,14 @@ class TasksController < ApplicationController
 
   	def create
   		task = current_user.tasks.create(task_params)
+        task.create_activity :create, owner: current_user
   		respond_with task, json: task
   	end
 
   	def update
   		task = Task.find(params[:id])
   		task.update_attributes(update_params)
+        task.create_activity :update, owner: current_user
   		respond_with task, json: task
   	end
 
