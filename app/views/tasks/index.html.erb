@@ -5,39 +5,24 @@
         <div class="col-md-6">
             <div class="todolist not-done">
              <h1>Todos</h1>
-                    <!-- <input type="text" class="form-control add-todo" placeholder="Add todo"> -->
-                    <textarea class="form-control add-todo" placeholder="Add todo"></textarea>
+                <!-- <input type="text" class="form-control add-todo" placeholder="Add todo"> -->
+                <textarea class="form-control add-todo" placeholder="Add todo"></textarea>
 
-                    <button id="checkAll" class="btn btn-success">Mark all as done</button>
-                    
-                    <hr>
-                    
-                    <ul id="sortable" class="list-unstyled">
-                        <% @tasks.each do |task| %>
-                            <input type="text" id="hidden_id" value="<%= task.id %>" hidden>
-                            <li class="ui-state-default">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="" /><%= task.todo %>
-                                    </label>
-                                </div>
-                            </li>
-                        <% end %>
-
-                    <!-- <li class="ui-state-default">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="" />Buy bread</label>
-                        </div>
-                    </li>
-                    <li class="ui-state-default">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="" />Teach penguins to fly</label>
-                        </div>
-                    </li> -->
-
-
+                <button id="checkAll" class="btn btn-success">Mark all as done</button>
+                
+                <hr>
+                
+                <ul id="sortable" class="list-unstyled">
+                    <% @tasks.each do |task| %>
+                        <input type="text" id="hidden_id" value="<%= task.id %>" hidden>
+                        <li class="ui-state-default">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" /><%= task.todo %>
+                                </label>
+                            </div>
+                        </li>
+                    <% end %>
                 </ul>
                 <div class="todo-footer">
                     <strong><span class="count-todos"></span></strong> Items Left
@@ -48,9 +33,16 @@
             <div class="todolist">
              <h1>Already Done</h1>
                 <ul id="done-items" class="list-unstyled">
-                    <li>Some item <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button></li>
+                    <% @task_finish.each do |finish| %>
+                        <li>
+                            <%= finish.todo %>
+                            <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button>
+                        </li>
+                         <input type="text" id="finish_id" value="<%= finish.id %>" hidden>
+                    <% end %>
                     
                 </ul>
+
             </div>
         </div>
     </div>

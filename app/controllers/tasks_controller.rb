@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
 	respond_to :html, :xml, :json
   	def index
-  		@tasks = Task.where(user_id: current_user.id).all
+  		@tasks = Task.where(user_id: current_user.id).notfinish.published
+  		@task_finish = Task.where(user_id: current_user.id).finish.published
   	end
 
   	def create
@@ -22,6 +23,6 @@ class TasksController < ApplicationController
   	end
 
   	def update_params
-  		params.require(:task).permit(:finished)
+  		params.require(:task).permit(:finished, :published)
   	end
 end

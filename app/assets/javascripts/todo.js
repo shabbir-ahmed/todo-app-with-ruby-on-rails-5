@@ -46,6 +46,16 @@ $('.todolist').on('change','#sortable li input[type="checkbox"]',function(){
 
 //delete done task from "already done"
 $('.todolist').on('click','.remove-item',function(){
+    var id = $('#finish_id').val();
+    $.ajax({
+        url: '/tasks/' + id,
+        type: 'PUT',
+        dataType:'json',
+        data: {task: {published: false}},
+        success: function (response) {
+            $("#success_notice").html("<div class='alert alert-danger fade in'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>Removed</strong></div>");
+        }
+    });
     removeItem(this);
 });
 
