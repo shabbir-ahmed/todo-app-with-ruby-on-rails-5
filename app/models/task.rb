@@ -1,8 +1,11 @@
 class Task < ApplicationRecord
-  belongs_to :user
+	include PublicActivity::Model
+  	tracked owner: ->(controller, model) { controller && controller.current_user }
 
-  scope :finish, -> {where('finished': true)}
-  scope :notfinish, -> {where('finished': false)}
-  scope :published, -> {where('published': true)}
-  scope :unpublished, -> {where('published': false)}
+  	belongs_to :user
+
+  	scope :finish, -> {where('finished': true)}
+  	scope :notfinish, -> {where('finished': false)}
+  	scope :published, -> {where('published': true)}
+  	scope :unpublished, -> {where('published': false)}
 end

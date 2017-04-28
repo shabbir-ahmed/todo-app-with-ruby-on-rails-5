@@ -1,11 +1,12 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-  before_action :configure_permitted_parameters, if: :devise_controller?
+	include PublicActivity::StoreController
+  	protect_from_forgery with: :exception
+  	before_action :configure_permitted_parameters, if: :devise_controller?
   
-  include ApplicationHelper
+  	include ApplicationHelper
   
-  protected
-  def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:account_update, keys: [:full_name, :location])
-  end
+  	protected
+  	def configure_permitted_parameters
+      	devise_parameter_sanitizer.permit(:account_update, keys: [:full_name, :location])
+  	end
 end
