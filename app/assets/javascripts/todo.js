@@ -29,7 +29,7 @@ $('.todolist').on('change','#sortable li input[type="checkbox"]',function(){
     if($(this).prop('checked')){
         var doneItem = $(this).parent().parent().find('label').text();
         $(this).parent().parent().parent().addClass('remove');
-        var id = $('#hidden_id').val();
+        var id = $(this).val();
         $.ajax({
             url: '/tasks/' + id,
             type: 'PUT',
@@ -46,7 +46,7 @@ $('.todolist').on('change','#sortable li input[type="checkbox"]',function(){
 
 //delete done task from "already done"
 $('.todolist').on('click','.remove-item',function(){
-    var id = $('#finish_id').val();
+    var id = $(this).val();
     $.ajax({
         url: '/tasks/' + id,
         type: 'PUT',
