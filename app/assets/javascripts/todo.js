@@ -39,7 +39,7 @@ $('.todolist').on('change','#sortable li input[type="checkbox"]',function(){
                 $("#success_notice").html("<div class='alert alert-success fade in'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>Finished</strong></div>");
             }
         });
-        done(doneItem);
+        done(doneItem, id);
         countTodos();
     }
 });
@@ -83,9 +83,10 @@ function createTodo(text){
 
 
 //mark task as done
-function done(doneItem){
+function done(doneItem, id){
     var done = doneItem;
-    var markup = '<li>'+ done +'<button class="btn btn-default btn-xs pull-right  remove-item"><span class="glyphicon glyphicon-remove"></span></button></li>';
+    var id = id;
+    var markup = '<li>'+ done +'<button value='+ id +' class="btn btn-default btn-xs pull-right  remove-item"><span class="glyphicon glyphicon-remove"></span></button></li>';
     $('#done-items').append(markup);
     $('.remove').remove();
 }
