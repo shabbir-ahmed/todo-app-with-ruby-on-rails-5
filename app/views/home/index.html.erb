@@ -1,16 +1,24 @@
 <% if user_signed_in? %>
     <% @activities.each do |activity| %>
 	  	<div class="activity">
-		  	<span class="activity_mark"><%= activity.owner.full_name if activity.owner %></span>
+		  	<span class="activity_mark">
+		  	<%= activity.owner.full_name if activity.owner %></span>
 		  	<% if activity.key == "task.update" %> 
 		  		Finished Task
 		  	<% elsif activity.key == "task.create" %> 
 		  		Created Task
+		  	<% elsif activity.key == "user.update" %>
+		  		Updated Profile
+		  	<% elsif activity.key == "user.create" %> 
+		  		Created Profile
 		  	<% end %>
-		  	<% if activity.trackable %>
+
+
+
+		  	<% if activity.trackable_type=="Task" %>
   				<span class="activity_mark"><%= activity.trackable.todo %></span> <i><%= time_ago_in_words(activity.created_at) %> ago </i>
-  			<% else %>
-  			  	which has since been removed 
+  			<% elsif activity.trackable_type=="User" %>
+  			  	<span class="activity_mark"><%= activity.trackable.full_name %></span> <i><%= time_ago_in_words(activity.created_at) %> ago </i>
   			<% end %>
 	  	</div>
 	<% end %>
