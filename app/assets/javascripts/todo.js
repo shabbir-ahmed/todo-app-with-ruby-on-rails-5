@@ -24,7 +24,7 @@ $('.add-todo').on('keypress',function (e) {
 });
 
 //create todo
-$('#save').click(function (e) {
+/*$('#save').click(function (e) {
       e.preventDefault
       if (e.which == 13) {
            if($('.add-todo').val() != ''){
@@ -35,7 +35,7 @@ $('#save').click(function (e) {
                // some validation
            }
       }
-});
+});*/
 
 
 // mark task as done
