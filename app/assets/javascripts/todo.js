@@ -24,10 +24,10 @@ $('.add-todo').on('keypress',function (e) {
 });
 
 //create todo
-$('#save').on('click',function (e) {
+$('#save').click(function (e) {
       e.preventDefault
       if (e.which == 13) {
-           if($(this).val() != ''){
+           if($('.add-todo').val() != ''){
            var todo = $(this).val();
             createTodo(todo); 
             countTodos();
