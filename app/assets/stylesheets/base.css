@@ -289,3 +289,11 @@ li.ui-state-default:last-child{
 #checkAll{
     margin-top:10px;
 }
+.alert{
+  background-color: rgb(242, 222, 222);
+  border-color: rgb(235, 204, 209);
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 20px;
+  text-align: left;
+}
