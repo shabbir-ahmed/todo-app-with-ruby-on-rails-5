@@ -23,6 +23,20 @@ $('.add-todo').on('keypress',function (e) {
       }
 });
 
+//create todo
+$('#save').on('click',function (e) {
+      e.preventDefault
+      if (e.which == 13) {
+           if($(this).val() != ''){
+           var todo = $(this).val();
+            createTodo(todo); 
+            countTodos();
+           }else{
+               // some validation
+           }
+      }
+});
+
 
 // mark task as done
 $('.todolist').on('change','#sortable li input[type="checkbox"]',function(){
