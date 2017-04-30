@@ -28,7 +28,7 @@ $('#save').click(function (e) {
       e.preventDefault
       if (e.which == 13) {
            if($('.add-todo').val() != ''){
-           var todo = $(this).val();
+           var todo = $('.add-todo').val();
             createTodo(todo); 
             countTodos();
            }else{
