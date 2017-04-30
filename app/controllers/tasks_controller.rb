@@ -1,8 +1,6 @@
 class TasksController < ApplicationController
-  # before_action :set_listing, only: [:index, :create, :update]
-  # before_filter :filter_name, :except => [:index, :create, :update]
     before_filter :authenticate_user!
-	respond_to :html, :xml, :json
+	  respond_to :html, :xml, :json
   	def index
   		@tasks = Task.where(user_id: current_user.id).notfinish.published
   		@task_finish = Task.where(user_id: current_user.id).finish.published
@@ -24,7 +22,7 @@ class TasksController < ApplicationController
   	private
 
   	def task_params
-  		params.require(:task).permit(:todo)
+  		params.require(:task).permit(:todo, :expire)
   	end
 
   	def update_params

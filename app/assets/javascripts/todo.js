@@ -10,7 +10,7 @@ $("#checkAll").click(function(){
 });
 
 //create todo
-$('.add-todo').on('keypress',function (e) {
+/*$('.add-todo').on('keypress',function (e) {
       e.preventDefault
       if (e.which == 13) {
            if($(this).val() != ''){
@@ -21,21 +21,22 @@ $('.add-todo').on('keypress',function (e) {
                // some validation
            }
       }
-});
+});*/
 
 //create todo
-/*$('#save').click(function (e) {
+$('#save_data').click(function(e) {
       e.preventDefault
-      if (e.which == 13) {
+      // if (e.which == 13) {
            if($('.add-todo').val() != ''){
            var todo = $('.add-todo').val();
-            createTodo(todo); 
+           var due = $('.due-date').val();
+            createTodo(todo,due); 
             countTodos();
            }else{
                // some validation
            }
-      }
-});*/
+      // }
+});
 
 
 // mark task as done
@@ -80,19 +81,19 @@ function countTodos(){
 }
 
 //create task
-function createTodo(text){
-    var markup = '<li class="ui-state-default"><div class="checkbox"><label><input type="checkbox" value="" />'+ text +'</label></div></li>';
+function createTodo(text,date){
+    var markup = '<li class="ui-state-default"><div class="checkbox"><label><input type="checkbox" value="" />'+ text + ' <span class="task-date" title="Due Date">' + date +'</span></label></div></li>';
         $.ajax({
             url: '/tasks',
             type: 'POST',
             dataType:'json',
-            data: {task: {todo: text}},
+            data: {task: {todo: text, expire: date}},
             success: function (response) {
                 $("#success_notice").html("<div class='alert alert-success fade in'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>Added</strong></div>");
             }
         });
     $('#sortable').append(markup);
-    $('.add-todo').val('');
+    $('.add-todo, .due-date').val('');
 }
 
 
