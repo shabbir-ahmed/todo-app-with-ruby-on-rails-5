@@ -72,7 +72,7 @@
             </div>
         <% end %>
 
-        <div class="<% if controller.controller_name == 'tasks' %>col-md-12<% else %>col-md-8<% end %> main-content">
+        <div class="<% if controller.controller_name == 'tasks' ||  controller.controller_name == "conversations" %>col-md-12<% else %>col-md-8<% end %> main-content">
             <% if notice %>
                 <p class="notice"><%= notice %></p>
             <% end %>

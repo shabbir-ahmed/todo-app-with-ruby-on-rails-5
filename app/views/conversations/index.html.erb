@@ -1,4 +1,4 @@
-<div class="col-md-9">
+<div class="col-md-8">
     <ul id="conversations-list">
       <% @conversations.each do |conversation| %>
         <%= render 'conversations/conversation', conversation: conversation, user: current_user %>
@@ -6,7 +6,7 @@
     </ul>
   </div>
 
-  <div class="col-md-3">
+  <div class="col-md-4">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">User list</h3>
