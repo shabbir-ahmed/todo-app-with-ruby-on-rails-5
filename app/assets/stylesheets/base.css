@@ -301,3 +301,10 @@ li.ui-state-default:last-child{
   color: rgb(0, 128, 0);
   font-weight: bold;
 }
+
+.message-sent > img {
+  width: 23px;
+}
+.message-received > img {
+  width: 23px;
+}

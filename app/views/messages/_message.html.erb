@@ -1,7 +1,9 @@
 <li>
-  <div class="row">
-    <div class="<%= user.id == message.user_id ? 'message-sent' : 'message-received' %>">
-      <%= message.body %>
-    </div>
-  </div>
+  	<div class="row">
+	    <div class="<%= user.id == message.user_id ? 'message-sent' : 'message-received' %>">
+	    	<%= image_tag avatar_url(user) %>
+	      	<%= message.body %>
+	      	<i><%= time_ago_in_words(message.created_at) %> ago </i>
+	    </div>
+  	</div>
 </li>
