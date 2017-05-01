@@ -173,7 +173,7 @@ DEPENDENCIES
   public_activity
   puma (~> 3.0)
   rails (~> 5.0.2)
-  redis
+  redis (~> 3.2)
   sass-rails (~> 5.0)
   turbolinks (~> 5)
   tzinfo-data
