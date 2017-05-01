@@ -33,9 +33,8 @@ body{
 {padding-top:30px;
 padding-left:30px;
 padding-right:0px;}
-.logo {
-  float: left;
-  margin-left: 28%;
+.sidebar2{
+  text-align: center;
 }
 .logo > img
 {
