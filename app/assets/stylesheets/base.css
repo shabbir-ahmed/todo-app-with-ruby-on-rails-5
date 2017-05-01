@@ -211,13 +211,13 @@ li:hover{
 }
 
 .panel-heading a{
-    font-size: 48px;
+    /*font-size: 48px;*/
     color: rgb(6, 106, 117);
-    padding: 2px 0 10px 0;
+    /*padding: 2px 0 10px 0;*/
     font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;
     font-weight: bold;
     text-align: center;
-    padding-bottom: 30px;
+    /*padding-bottom: 30px;*/
 }
 
 .panel-heading a{
