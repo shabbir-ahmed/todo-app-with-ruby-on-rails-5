@@ -308,3 +308,6 @@ li.ui-state-default:last-child{
 .message-received > img {
   width: 23px;
 }
+.panel-default > .panel-heading {
+  text-align: left;
+}
