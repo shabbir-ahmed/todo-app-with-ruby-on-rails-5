@@ -41,3 +41,4 @@ $(document).on('submit', '.new_message', function(e) {
   App.conversation.speak(values);
   $(this).trigger('reset');
 });
+App.cable = ActionCable.createConsumer("/cable")
