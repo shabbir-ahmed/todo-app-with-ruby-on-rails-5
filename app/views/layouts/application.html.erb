@@ -23,9 +23,10 @@
 
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="#"><span class="glyphicon glyphicon-user"></span>  
-                                <%= image_tag avatar_url(current_user), style: "width: 23px;" %>
-                                <%= current_user.full_name %></a>
+                                <a href="<%= edit_user_registration_path %>">
+                                    <%= image_tag avatar_url(current_user), style: "width: 23px; border-radius: 25px;" %>
+                                    <%= current_user.full_name %>
+                                </a>
                             </li>
                             <li> 
                                 <%= link_to "<span class='glyphicon glyphicon-log-in'></span> Logout".html_safe, destroy_user_session_path, method: :delete %>      
@@ -41,9 +42,6 @@
                     <div class="logo">
                         <%= image_tag avatar_url(current_user) %>
                     </div>
-                    <div class="name">
-                        <p><%= current_user.full_name %></p>
-                    </div>
                     <% end %>
                 </div>
             </div>
@@ -52,6 +50,12 @@
                 <% if user_signed_in? %>
                     <div class="left-navigation">
                         <ul>
+                            <li>
+                                <div class="name">
+                                    <%= current_user.full_name %>
+                                </div>
+                            </li>
+
                             <li><a href="<%= root_url %>">Home</a></li>
 
                             <li>
@@ -61,22 +65,18 @@
                             <li>
                                 <a href="<%= conversations_path %>">Conversations</a> 
                             </li>
-                        </ul>
-                            <ul>
-                                <li></i>Family Reading</li>
-                                <li></i>Education</li>
-                                <li></i>Business</li>
-                            </ul>
-                        <ul>
-                            <li><i class="fa fa-cog" aria-hidden="true"></i><a href="<%= edit_user_registration_path %>">Update Profile</a></li>
-                            <li><i class="fa fa-power-off" aria-hidden="true"></i><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+
+                            <li>
+                                <a href="<%= edit_user_registration_path %>">Update Profile</a>
+                            </li>
+                            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
                         </ul>
                     </div>
                 <% end %>
             </div>
         <% end %>
 
-        <div class="<% if controller.controller_name == 'tasks' ||  controller.controller_name == "conversations" %>col-md-12<% else %>col-md-8<% end %> main-content">
+        <div class="<% if controller.controller_name == 'tasks' ||  controller.controller_name == "conversations" %>col-md-12<% else %>col-md-8 col-sm-8<% end %> main-content">
             <% if notice %>
                 <p class="notice"><%= notice %></p>
             <% end %>

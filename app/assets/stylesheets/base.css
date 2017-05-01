@@ -33,9 +33,9 @@ body{
 {padding-top:30px;
 padding-left:30px;
 padding-right:0px;}
-.logo
-{
-float:left;
+.logo {
+  float: left;
+  margin-left: 28%;
 }
 .logo > img
 {
@@ -45,23 +45,12 @@ float:left;
   padding:5px;
 
 }
-.name
-{ float:right;
-  clear:right;
-  padding:5px;
-  height: 74px;
-  vertical-align: middle;
-  padding-top:20px;
-  text-align:right;
+.name {
+  color: rgb(255, 255, 255);
+  font-family: initial;
+  font-size: 40px;
 }
-.name > p
-{
-  margin-bottom: 0px;
-}
-i {
-  display: inline-block;
-  margin-right: 1em;
-}
+
 li
 {
   list-style-type: none;
