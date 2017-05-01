@@ -33,7 +33,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="<%= edit_user_registration_path %>">
-                                    <%= image_tag avatar_url(current_user), style: "width: 23px; border-radius: 25px;" %>
+                                    <%= image_tag avatar_url(current_user), class: "img-circle", style: "width: 23px;" %>
                                     <%= current_user.full_name %>
                                 </a>
                             </li>

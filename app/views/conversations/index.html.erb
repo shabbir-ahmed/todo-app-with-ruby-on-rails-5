@@ -15,7 +15,7 @@
         <ul>
           <% @users.each do |user| %>
             <li style="text-align: left;">
-                <%= image_tag avatar_url(user), style: "width: 23px;" %>
+                <%= image_tag avatar_url(user), class: "img-circle", style: "width: 23px;" %>
                 <% if user.full_name.blank? %>
                     <%= link_to user.email, conversations_path(user_id: user), remote: true, method: :post, style: "color: #000 !important;" %>
                 <% else %>
