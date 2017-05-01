@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   # get 'tasks/index'
 
-  mount ActionCable.server => "/cable"
-
   devise_for :users
   # get 'home/index'
 
