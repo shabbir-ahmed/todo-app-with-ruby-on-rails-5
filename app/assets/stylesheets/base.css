@@ -299,3 +299,22 @@ li.ui-state-default:last-child{
 .panel-default > .panel-heading {
   text-align: left;
 }
+.message-sent > i {
+  font-size: xx-small;
+}
+.message-received > i {
+  font-size: xx-small;
+}
+
+.message-sent > p {
+  text-align: left;
+}
+.message-received > p {
+  text-align: left;
+}
+.message-received > .user_profile{
+  text-align: left;
+}
+.user_profile img{
+  width: 23px;
+}
