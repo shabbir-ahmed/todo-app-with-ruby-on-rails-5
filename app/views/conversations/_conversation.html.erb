@@ -1,7 +1,7 @@
 <li>
   <div class="panel panel-default" data-conversation-id="<%= conversation.id %>">
     <div class="panel-heading">
-        <%= image_tag avatar_url(user), class: 'toggle-window', style: "width: 23px;" %>
+        <%= image_tag avatar_url(conversation.opposed_user(user)), class: 'toggle-window', style: "width: 23px;" %>
         <% if conversation.opposed_user(user).full_name.blank? %>
             <%= link_to conversation.opposed_user(user).email, '', class: 'toggle-window' %>
         <% else %>
