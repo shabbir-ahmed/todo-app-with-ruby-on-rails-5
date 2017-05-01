@@ -16,9 +16,18 @@
                 <nav class="navbar navbar-inverse">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="<%= root_url %>">Home</a>
-                            <a class="navbar-brand" href="<%= tasks_path %>">Schedule</a>
-                            <a class="navbar-brand" href="<%= conversations_path %>">Conversation</a>
+                            <a class="navbar-brand" href="<%= root_url %>">
+                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                                Home
+                            </a>
+                            <a class="navbar-brand" href="<%= tasks_path %>">
+                                <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                                Schedule
+                            </a>
+                            <a class="navbar-brand" href="<%= conversations_path %>">
+                                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                Conversation
+                            </a>
                         </div>
 
                         <ul class="nav navbar-nav navbar-right">
@@ -56,20 +65,34 @@
                                 </div>
                             </li>
 
-                            <li><a href="<%= root_url %>">Home</a></li>
-
                             <li>
-                                <a href="<%= tasks_path %>">Schedule</a> 
+                                <a href="<%= root_url %>">
+                                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                                    Home
+                                </a>
                             </li>
 
                             <li>
-                                <a href="<%= conversations_path %>">Conversations</a> 
+                                <a href="<%= tasks_path %>">
+                                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                                    Schedule
+                                </a> 
                             </li>
 
                             <li>
-                                <a href="<%= edit_user_registration_path %>">Update Profile</a>
+                                <a href="<%= conversations_path %>">
+                                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                    Conversations
+                                </a> 
                             </li>
-                            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+
+                            <li>
+                                <a href="<%= edit_user_registration_path %>">
+                                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                    Update Profile
+                                </a>
+                            </li>
+                            <li><%= link_to "<span class='glyphicon glyphicon-log-out'></span> Logout".html_safe, destroy_user_session_path, method: :delete %></li>
                         </ul>
                     </div>
                 <% end %>
