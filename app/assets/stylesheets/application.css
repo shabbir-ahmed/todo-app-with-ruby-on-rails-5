@@ -11,7 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
-*= require jquery.datetimepicker
+ *= require jquery.datetimepicker
+ *= require jquery-ui
  *= require_self
  */
 
