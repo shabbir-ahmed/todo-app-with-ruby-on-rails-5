@@ -32,8 +32,14 @@ $(document).ready(function(){
             createTodo(todo,due); 
             countTodos();
         }else{
-            // some validation
-            alert("Please enter data")
+            var types = [BootstrapDialog.TYPE_DANGER];
+            $.each(types, function(index, type){
+                BootstrapDialog.show({
+                    type: type,
+                    title: 'Alert',
+                    message: 'Please enter data',
+                });     
+            });
         }
     });
 
