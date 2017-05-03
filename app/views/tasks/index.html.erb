@@ -37,11 +37,16 @@
         <div class="col-md-6">
             <div class="todolist">
              <h1>Already Done</h1>
-                <ul id="done-items" class="list-unstyled">
+                <ul id="done-items" class="list-unstyled" style="text-align: left;">
                     <% @task_finish.each do |finish| %>
                         <li>
-                            <%= finish.todo %>
-                            <button class="remove-item btn btn-default btn-xs pull-right" value="<%= finish.id %>"><span class="glyphicon glyphicon-remove"></span></button>
+                            <%= finish.todo %> <span class="task-date" data-toggle="tooltip" title="Due Date"><%= finish.expire %></span>
+
+                            <button class="remove-item btn btn-danger btn-xs pull-right" data-toggle="tooltip" title="Done" value="<%= finish.id %>">
+
+                                <span class="glyphicon glyphicon-remove"></span>
+
+                            </button>
                         </li>
                     <% end %>
                     
@@ -55,5 +60,6 @@
 <script type="text/javascript">
 $(function() {
     $('.due-date').datetimepicker();
+    $('[data-toggle="tooltip"]').tooltip();
 });
 </script>

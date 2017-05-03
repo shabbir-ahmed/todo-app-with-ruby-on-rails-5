@@ -106,7 +106,7 @@ $(document).ready(function(){
     function done(doneItem, id){
         var done = doneItem;
         var id = id;
-        var markup = '<li>'+ done +'<button value='+ id +' class="btn btn-default btn-xs pull-right  remove-item"><span class="glyphicon glyphicon-remove"></span></button></li>';
+        var markup = '<li>'+ done +'<button value='+ id +' data-toggle="tooltip" title="Done" class="btn btn-danger btn-xs pull-right  remove-item"><span class="glyphicon glyphicon-remove"></span></button></li>';
         $('#done-items').append(markup);
         $('.remove').remove();
     }
