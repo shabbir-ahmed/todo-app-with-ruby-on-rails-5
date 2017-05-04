@@ -29,7 +29,9 @@ $(document).ready(function(){
         if($('.add-todo').val() != ''){
             var todo = $('.add-todo').val();
             var due = $('.due-date').val();
-            createTodo(todo,due); 
+            last_id = $('#last_id').val();
+            // last_id = last_id + 1;
+            createTodo(todo,due,last_id); 
             countTodos();
         }else{
             var types = [BootstrapDialog.TYPE_DANGER];
@@ -86,8 +88,9 @@ $(document).ready(function(){
     }
 
   //create task
-    function createTodo(text,date){
-        var markup = '<li class="ui-state-default"><div class="checkbox"><label><input type="checkbox" value="" />'+ text + ' <span class="task-date" title="Due Date">' + date +'</span></label></div></li>';
+    function createTodo(text,date, last_id){
+        last_id++;
+        var markup = '<li class="ui-state-default"><div class="checkbox"><label><input type="checkbox" value="'+ last_id +'" />'+ text + ' <span class="task-date" title="Due Date">' + date +'</span></label></div></li>';
         $.ajax({
             url: '/tasks',
             type: 'POST',
