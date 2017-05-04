@@ -26,7 +26,7 @@ $(document).ready(function(){
     //create todo
     $('#save_data').click(function(e) {
         e.preventDefault
-        if($('.add-todo').val() != ''){
+        if($('.add-todo').val() != '' || $('.due-date').val() != ''){
             var todo = $('.add-todo').val();
             var due = $('.due-date').val();
             last_id = $('#last_id').val();
@@ -40,6 +40,7 @@ $(document).ready(function(){
                     type: type,
                     title: 'Alert',
                     message: 'Please enter data',
+                    draggable: true
                 });     
             });
         }
@@ -58,7 +59,16 @@ $(document).ready(function(){
                 dataType:'json',
                 data: {task: {finished: true}},
                 success: function (response) {
-                    $("#success_notice").html("<div class='alert alert-success fade in'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>Finished</strong></div>");
+                    // $("#success_notice").html("<div class='alert alert-success fade in'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>Finished</strong></div>");
+                    var types = [BootstrapDialog.TYPE_SUCCESS];
+                    $.each(types, function(index, type){
+                        BootstrapDialog.show({
+                            type: type,
+                            title: 'SUCCESS',
+                            message: 'You have finished your task',
+                            draggable: true
+                        });     
+                    });
                 }
             });
             done(doneItem, id);
@@ -75,7 +85,16 @@ $(document).ready(function(){
             dataType:'json',
             data: {task: {published: false}},
             success: function (response) {
-                $("#success_notice").html("<div class='alert alert-danger fade in'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>Removed</strong></div>");
+                // $("#success_notice").html("<div class='alert alert-danger fade in'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>Removed</strong></div>");
+                var types = [BootstrapDialog.TYPE_DANGER];
+                $.each(types, function(index, type){
+                    BootstrapDialog.show({
+                        type: type,
+                        title: 'Removed',
+                        message: 'You have removed your task from this list',
+                        draggable: true
+                    });     
+                });
             }
         });
         removeItem(this);
@@ -97,7 +116,16 @@ $(document).ready(function(){
             dataType:'json',
             data: {task: {todo: text, expire: date}},
             success: function (response) {
-                $("#success_notice").html("<div class='alert alert-success fade in'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>Added</strong></div>");
+                // $("#success_notice").html("<div class='alert alert-success fade in'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>Added</strong></div>");
+                var types = [BootstrapDialog.TYPE_SUCCESS];
+                $.each(types, function(index, type){
+                    BootstrapDialog.show({
+                        type: type,
+                        title: 'SUCCESS',
+                        message: 'Successfully created your data',
+                        draggable: true
+                    });     
+                });
             }
         });
         $('#sortable').append(markup);
