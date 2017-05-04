@@ -26,7 +26,9 @@ $(document).ready(function(){
     //create todo
     $('#save_data').click(function(e) {
         e.preventDefault
-        if($('.add-todo').val() != '' || $('.due-date').val() != ''){
+        var todo = $('.add-todo').val();
+        var due = $('.due-date').val();
+        if(todo != '' && due != ''){
             var todo = $('.add-todo').val();
             var due = $('.due-date').val();
             last_id = $('#last_id').val();
