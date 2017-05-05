@@ -318,3 +318,10 @@ li.ui-state-default:last-child{
 .user_profile img{
   width: 23px;
 }
+#error_explanation > h2 {
+  font-size: 22px;
+}
+
+#error_explanation {
+  text-align: left;
+}
