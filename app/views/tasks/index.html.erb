@@ -13,7 +13,7 @@
                 <!-- <button id="checkAll" class="btn btn-success">Mark all as done</button> -->
                 
                 <hr>
-                
+                <input type="text" id="last_id" value="<%= @task_last_id.id %>" hidden>
                 <ul id="sortable" class="list-unstyled" style="text-align: left;">
                     <% @tasks.each do |task| %>
                         <li class="ui-state-default">
