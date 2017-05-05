@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   	def index
   		@tasks = Task.where(user_id: current_user.id).notfinish.published
   		@task_finish = Task.where(user_id: current_user.id).finish.published
-        @task_last_id = Task.last if Task.present?
+        @task_last_id = Task.last
   	end
 
   	def create
