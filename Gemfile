@@ -49,6 +49,7 @@ end
 
 # User authentication
 gem 'devise'
+# for public activity
 gem 'public_activity'
 gem 'jquery-datetimepicker-rails'
 gem 'activeadmin'
