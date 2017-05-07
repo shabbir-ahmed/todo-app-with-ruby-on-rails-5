@@ -15,10 +15,10 @@ Rails.application.configure do
     config.action_mailer.smtp_settings = {
         :address => "smtp.gmail.com",
         :port => 587,
-        :authentication => :plain,   # I've also tried :login
-        :enable_starttls_auto => true,  # Also tried tls => true
-        :user_name => 'shabbirsylhet149@gmail.com',
-        :password => '01823189520'
+        :authentication => :plain,
+        :enable_starttls_auto => true,
+        :user_name => 'shabbirahmed149@gmail.com',
+        :password => 'Thisis@1991'
     }
 
   # Code is not reloaded between requests.
