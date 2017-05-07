@@ -13,15 +13,12 @@ permit_params :full_name, :location, :email, :role, :status, :password, :passwor
 # end
 	menu priority: 3
 	filter :full_name
-  filter :email
-  filter :role
-	filter :status
-	filter :location
+    filter :email
+    filter :role, as: :select, collection: [["Agent","Agent"]]
+	filter :status, as: :select, collection: [["Active","Active"],["Deactive","Deactive"]]
 	filter :created_at
 
 	index do
-		selectable_column
-    	id_column
     	column :full_name
         column :email
     	column :role
