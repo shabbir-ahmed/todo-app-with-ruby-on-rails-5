@@ -37,6 +37,21 @@ ActiveAdmin.register_page "Dashboard" do
         end
     end
 
+    columns do
+        column do
+            panel "Recent Tasks" do
+                table_for Task.order('id desc').limit(5) do
+                    column("Task") {|task| task.todo}
+                    column("Date") {|date| date.expire}
+                    column("Published") {|published| published.published}
+                    column("Finished") {|finished| finished.finished}
+                    column("User") {|user| link_to(user.user.full_name, admin_user_path(user.user), class: "member_link")}
+                    column("Action") {|link| link_to("View", admin_task_path(link), class: "member_link") }
+                end
+            end
+        end
+    end
+
     # section "Recent Users" do
     #     table_for User.order("created_at desc").limit(5) do
     #       column :full_name
