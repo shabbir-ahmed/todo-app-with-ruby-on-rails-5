@@ -32,3 +32,8 @@
         }
     });
 })();
+
+$(function() {
+    $('.due-date').datetimepicker();
+    $('[data-toggle="tooltip"]').tooltip();
+});
