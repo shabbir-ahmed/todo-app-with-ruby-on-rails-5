@@ -12,6 +12,22 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
         column do
+            panel "User Active / Deactive" do
+                pie_chart User.group(:status).count
+            end
+        end
+    end
+
+    columns do
+        column do
+            panel "User Registration" do
+                line_chart User.group_by_day(:created_at, time_zone: "Pacific Time (US & Canada)").count
+            end
+        end
+    end
+
+    columns do
+        column do
             panel "Recent Active Users" do
                 table_for User.active.order('id desc').limit(5) do
                     column("Full Name") {|name| name.full_name}
@@ -51,6 +67,7 @@ ActiveAdmin.register_page "Dashboard" do
             end
         end
     end
+
 
     # section "Recent Users" do
     #     table_for User.order("created_at desc").limit(5) do

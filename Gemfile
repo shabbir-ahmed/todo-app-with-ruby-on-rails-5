@@ -54,6 +54,8 @@ gem 'public_activity'
 gem 'jquery-datetimepicker-rails'
 gem 'activeadmin'
 gem 'arctic_admin'
+gem 'chartkick'
+gem 'groupdate'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
