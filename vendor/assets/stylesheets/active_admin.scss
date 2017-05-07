@@ -17,3 +17,32 @@ $primary-color: #2dbb43;
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+
+.status_tag {
+  background: darken($primary-color, 15%);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 3px 5px 2px 5px;
+  font-size: 0.8em;
+
+  &.ok, &.published, &.complete, &.completed, &.green { background: #8daa92; }
+  &.warn, &.warning, &.orange { background: #e29b20; }
+  &.error, &.errored, &.red { background: #d45f53; }
+  &.agent { background: #4285F4; }
+}
+
+body.active_admin {
+  .status_tag.blue { background: #63B8FF; }
+}
+.member_link {
+  background-color: rgb(45, 187, 67);
+  border-radius: 3px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 4px;
+  padding: 2px 9px;
+  transition: border 0.2s linear 0s, color 0.2s linear 0s, width 0.2s linear 0s, background-color 0.2s linear 0s;
+}

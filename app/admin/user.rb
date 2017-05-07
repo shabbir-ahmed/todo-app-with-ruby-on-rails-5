@@ -15,18 +15,21 @@ permit_params :full_name, :location, :email, :role, :status, :password, :passwor
     filter :full_name
     filter :email
     filter :role, as: :select, collection: [["Agent","Agent"]]
-    filter :status, as: :select, collection: [["Active","Active"],["Deactive","Deactive"]]
+    filter :status, as: :select, collection: [["Active","Active"],["Deactivate","Deactivate"]]
     filter :created_at
+
+    scope :active
+    scope :deactivate
 
 	index do
 		selectable_column
     	column :full_name
         column :email
-    	column :role
+        column(:Role) {|role| status_tag(role.role, :agent)}
     	column :location
     	column :last_sign_in_at
         column :last_sign_in_ip
-    	column :status
+        column :status
     	column "Signup", :created_at
     	actions
   	end
@@ -54,7 +57,7 @@ permit_params :full_name, :location, :email, :role, :status, :password, :passwor
                 f.input :password
                 f.input :password_confirmation
             end
-            f.input :status, label: 'Status', as: :select, prompt: true, collection: [["Active","Active"],["Deactive","Deactive"]]
+            f.input :status, label: 'Status', as: :select, prompt: true, collection: [["Active","Active"],["Deactivate","Deactivate"]]
 	    end
 	    f.actions
 	end
