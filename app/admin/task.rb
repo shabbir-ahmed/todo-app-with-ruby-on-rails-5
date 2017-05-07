@@ -4,9 +4,13 @@ ActiveAdmin.register Task do
 # => 
 	permit_params :todo, :expire, :user_id
 	menu priority: 4, label: "Notes"
+
+    scope :published, -> {where('published': true)}
+    scope :notfinish, -> {where('finished': false)}
 # permit_params :list, :of, :attributes, :on, :model
 #
 # or
+    filter :user
 	filter :published
 	filter :finished
 	filter :expire
