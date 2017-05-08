@@ -5,12 +5,12 @@ ActiveAdmin.register Task do
 	permit_params :todo, :expire, :user_id
 	menu priority: 4, label: "Notes"
 
-   scope :published, -> {where('published': true)}
-   scope :notfinish, -> {where('finished': false)}
+   scope :published
+   scope :notfinish
 # permit_params :list, :of, :attributes, :on, :model
 #
 # or
-   filter :user
+    filter :user
 	filter :published
 	filter :finished
 	filter :expire
@@ -19,7 +19,7 @@ ActiveAdmin.register Task do
 	index do
 		selectable_column
     	column :todo
-      column "Due Date", :expire
+        column "Due Date", :expire
     	column :published
     	column :finished
     	column "Create By", :user

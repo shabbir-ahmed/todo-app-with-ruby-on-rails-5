@@ -21,8 +21,8 @@ ActiveAdmin.register_page "Company Metrics" do
 
 	    columns do
 	        column do
-	            panel "User Registration" do
-	                geo_chart Visit.group(:country).count
+	            panel "User Visits" do
+	                line_chart Visit.group_by_day(:started_at).count
 	            end
 	        end
 	    end
