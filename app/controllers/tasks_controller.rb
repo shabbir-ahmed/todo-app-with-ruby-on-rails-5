@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   		@tasks = Task.where(user_id: current_user.id).notfinish.published
   		@task_finish = Task.where(user_id: current_user.id).finish.published
         @task_last_id = Task.last
+        ahoy.track "Viewed Schedule Page", title: "Schedule page viewed"
   	end
 
   	def create

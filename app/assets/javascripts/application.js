@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require ahoy
 //= require jquery.datetimepicker
 // require turbolinks
 //= require_tree .

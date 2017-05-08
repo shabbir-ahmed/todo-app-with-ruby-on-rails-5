@@ -2,7 +2,7 @@ ActiveAdmin.register User do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :full_name, :location, :email, :role, :status, :password, :password_confirmation
+permit_params :full_name, :location, :email, :role, :status, :country, :password, :password_confirmation
 #
 # or
 #
@@ -26,7 +26,7 @@ permit_params :full_name, :location, :email, :role, :status, :password, :passwor
     	column :full_name
         column :email
         column(:Role) {|role| status_tag(role.role, :agent)}
-    	column :location
+        column :country
     	column :last_sign_in_at
         column :last_sign_in_ip
         column :status
@@ -39,6 +39,7 @@ permit_params :full_name, :location, :email, :role, :status, :password, :passwor
      	 	row :full_name
             row :email
      	 	row :role
+            row :country
      	 	row :location
      	 	row :last_sign_in_at
             row :last_sign_in_ip
@@ -50,6 +51,7 @@ permit_params :full_name, :location, :email, :role, :status, :password, :passwor
   	form do |f|
 	    f.inputs "User Details" do
             f.input :full_name
+            f.input :country, :as => :string
             f.input :location
             f.input :email
             f.input :role, label: 'Role', as: :select, prompt: true, collection: [["Agent","Agent"],["None","None"]]
